@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {english}
+\beamer@sectionintoc {1}{What is Data Science?}{2}{0}{1}
+\beamer@sectionintoc {2}{Where to start?}{4}{0}{2}
+\beamer@sectionintoc {3}{Get experience}{5}{0}{3}
+\beamer@sectionintoc {4}{Conclusion}{7}{0}{4}

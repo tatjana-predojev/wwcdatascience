@@ -1,0 +1,298 @@
+\documentclass[compress,red]{beamer}
+\mode<presentation>
+
+\usetheme{PaloAlto}
+% other themes: AnnArbor, Antibes, Bergen, Berkeley, Berlin, Boadilla, boxes, CambridgeUS, Copenhagen, Darmstadt, default, Dresden, Frankfurt, Goettingen,
+% Hannover, Ilmenau, JuanLesPins, Luebeck, Madrid, Maloe, Marburg, Montpellier, PaloAlto, Pittsburg, Rochester, Singapore, Szeged, classic
+
+%\usecolortheme{lily}
+% color themes: albatross, beaver, beetle, crane, default, dolphin, dov, fly, lily, orchid, rose, seagull, seahorse, sidebartab, structure, whale, wolverine
+
+%\usefonttheme{serif}
+% font themes: default, professionalfonts, serif, structurebold, structureitalicserif, structuresmallcapsserif
+
+% pdf is displayed in full screen mode automatically
+%\hypersetup{pdfpagemode=FullScreen}
+
+% define your own colours:
+\definecolor{Red}{rgb}{1,0,0}
+\definecolor{Blue}{rgb}{0,0,1}
+\definecolor{Green}{rgb}{0,1,0}
+\definecolor{magenta}{rgb}{1,0,.6}
+\definecolor{lightblue}{rgb}{0,.5,1}
+\definecolor{lightpurple}{rgb}{.6,.4,1}
+\definecolor{gold}{rgb}{.6,.5,0}
+\definecolor{orange}{rgb}{1,0.4,0}
+\definecolor{hotpink}{rgb}{1,0,0.5}
+\definecolor{newcolor2}{rgb}{.5,.3,.5}
+\definecolor{newcolor}{rgb}{0,.3,1}
+\definecolor{newcolor3}{rgb}{1,0,.35}
+\definecolor{darkgreen1}{rgb}{0, .35, 0}
+\definecolor{darkgreen}{rgb}{0, .6, 0}
+\definecolor{darkred}{rgb}{.75,0,0}
+
+\xdefinecolor{olive}{cmyk}{0.64,0,0.95,0.4}
+\xdefinecolor{purpleish}{cmyk}{0.75,0.75,0,0}
+
+% \usepackage{beamerinnertheme_______}
+% inner themes include circles, default, inmargin, rectangles, rounded
+
+%\usepackage{beamerouterthemesmoothbars}
+% outer themes include default, infolines, miniframes, shadow, sidebar, smoothbars, smoothtree, split, tree
+
+%\useoutertheme[subsection=false]{smoothbars}
+
+% to have the same footer on all slides
+%\setbeamertemplate{footline}[text line]{xxx xxx xxx}
+%\setbeamertemplate{footline}[text line]{} % or empty footer
+
+% include packages
+%\usepackage[normal]{subfigure}
+\usepackage{multicol}
+\usepackage{amssymb,amsmath,amsfonts}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage[all,knot]{xy}
+\xyoption{arc}
+\usepackage{url}
+\usepackage{multimedia}
+\usepackage{hyperref}
+\usepackage{setspace}
+%\usepackage{booktabs}
+%\usepackage[table]{xcolor}
+% below are packages that i had included in the paper
+\usepackage[english]{babel}
+%\usepackage{cite}
+%\usepackage{acronym}
+%\usepackage{bibentry}
+%\usepackage[normal]{subfigure}
+%\nobibliography*
+
+%to have option to comment some parts of the text
+%\usepackage{comment}
+
+\title{What is tech? Data Science}
+%\subtitle{Requirements and mapping to ETSI M2M}
+\author{Tatjana Predojev}
+
+\date{\scriptsize Women Who Code, February 2017}
+
+\begin{document}
+
+\frame{
+\titlepage
+}
+
+\setcounter{tocdepth}{1}
+
+\newpage
+\tableofcontents
+\include{Section1_Whatis}
+\include{Section2_Wherestart}
+\include{Section3_Getexp}
+\include{Section4_Conclusion}
+
+\section{What is Data Science?}
+\frame{\frametitle{What is data science?}
+
+\begin{exampleblock}{}
+ {"Data Scientist (n.): someone who is better at statistics than any software engineer and better at software engineering than any statistician."} \\
+  \hspace*\fill{Josh Wills on twitter, 2012}
+\end{exampleblock}
+
+\centering{\Large No consensus about the correct definition!}
+
+\begin{itemize}
+ \item Tech end
+ \begin{itemize}
+  \item machine learning (python, R), Big Data (Spark, H20), very technical (computer scientists)
+ \end{itemize}
+ \item Business end
+ \begin{itemize}
+  \item Excel, SAS, SPSS, lots of visualisation (Tableau, QlickView), less technical
+ \end{itemize}
+\end{itemize}
+}
+% variants in between
+% tech: (mostly) startups, business: banks, consulting agencies
+
+\frame{\frametitle{Good news}
+\begin{itemize}
+ \item New field for everyone
+ \begin{itemize}
+  \item goes beyond statistics (a lot more programming-oriented)
+ \end{itemize}
+ \vspace{1cm}
+ \item Funny example: Spark initially released in 2014 vs. job ads requirements
+\end{itemize}
+}
+
+\section{Where to start?}
+\frame{\frametitle{Where to start?}
+\begin{itemize}
+ \item Love maths
+ \item Free online course \emph{Machine Learning} by Andrew Ng
+ \item Another free course \emph{Statistical Learning} by Hastie and Tibshirani
+ \item Cloudera's free \emph{Intro to Hadoop \& MapReduce} hosted by Udacity 
+\end{itemize}
+}
+
+\frame{\frametitle{To the Smart Grid}
+% \begin{itemize}
+%  \item Power grid needs to attain the following functionalities (mapped to corresponding use cases as per ETSI):
+% \end{itemize}
+\begin{description}
+ \item[Self-healing] \hfill \\
+  Protection and control in the face of power disturbance events with Wide Area Measurement System (WAMS), Distribution Supervision (DS)
+ \item[Enforced security] \hfill \\
+  Reliable and resilient operation against physical and cyber attack is highly important
+ \item[Renewable sources] \hfill \\
+  Accommodate all generation and storage options, such as Distributed Energy Resources (DER), Electric Vehicle (EV) charging, Photo Voltaic (PV) generation etc.
+ \item[Dynamic pricing] \hfill \\
+  Smart Metering, Demand Response (DR) in large scale applications, microgrid and/or consumer appliances
+\end{description}
+}
+
+\section{Smart Grid requirements}
+\frame{\frametitle{Smart Grid communication requirements}
+\begin{itemize}
+ \item First objective: make PMU data available to more participants in real time
+ \item Three major Smart Grid communication network requirements:
+ \begin{enumerate}
+  \item Quality of Service (QoS)
+  \item Flexibility
+  \item Security
+ \end{enumerate}
+\end{itemize}
+}
+
+\frame{\frametitle{Quality of Service}
+Four \textcolor{darkred}{latency} categories:
+\begin{enumerate}
+ \item protection $1-10~ms$ (real-time, i.e as close to real time as possible)
+ \item control $100~ms$ (real-time)
+ \item monitoring $1~s$ (near real-time)
+ \item metering, billing, reporting, postincidental analysis $>1~h$ (slow)
+\end{enumerate}
+Variable data rate, availability high or very high ($>99.99\%$), amounts of accumulated data significantly larger
+for reporting (GBytes) than for protection (Bytes)
+}
+
+\frame{\frametitle{Flexibility \& Security}
+\begin{itemize}
+ \item \textcolor{darkred}{heterogeneity} of data rates, latencies, underlying networks, operating systems etc.
+ \item \textcolor{darkred}{open} architecture, easily extendable, interoperable across multiple vendors
+ \item \textcolor{darkred}{mesh} network topologies
+ \item \textcolor{darkred}{filtering} to save bandwidth
+ \item \textcolor{darkred}{multicast} for multiple subscribing applications
+ \item \textcolor{darkred}{authentication}, data confidentiality and integrity
+\end{itemize}
+}
+
+\section{Tailored middleware}
+\frame{\frametitle{Tailored middleware}
+\begin{itemize}
+ \item \textcolor{darkred}{IP} is the minimum common denominator of the underlying networks
+ \begin{itemize}
+  \item UDP/IP not TCP/IP because of unpredictable latency of the latter
+ \end{itemize}
+ \item Stringent QoS requirements considered at the network layer already
+ \begin{itemize}
+  \item middleware becomes part of the network
+  \item network routers are \textcolor{darkred}{session-aware}
+ \end{itemize}
+\end{itemize}
+}
+
+\frame{\frametitle{ETSI M2M Service Capability Layer}
+\begin{itemize}
+ \item ETSI M2M standard defines an end-to-end M2M functional architecture
+ \item Distributed system: xSCL where x stands for D(evice), G(ateway) or N(etwork)
+ \item M2M \textcolor{darkred}{resource} is a shared memory area for exchanging data
+ \begin{itemize}
+  \item created within an xSCL
+  \item referenced with a global identifier (e.g. a URI in HTTP)
+  \item can be read, updated, subscribed, notified, announced, retrieved, discovered, deleted by the application
+ \end{itemize}
+\end{itemize}
+}
+
+\frame{\frametitle{ETSI M2M services in Smart Grid comm. network}
+\begin{figure}[tbp!]
+\centering{\includegraphics[height=0.9\textheight]{graduation.jpg}}
+\end{figure}
+}
+
+\frame{\frametitle{Functional mapping of Smart Grid requirements to ETSI M2M}
+\begin{itemize}
+ \item PMUs, IEDs are \textcolor{darkred}{publishers}
+ \item Control and monitoring applications are \textcolor{darkred}{subscribers}
+ % \item Set IP routing tables to establish a session
+ \item xGC (Generic Communication) service capability
+ \begin{itemize}
+  \item provides secure transport session establishment
+ \end{itemize}
+ \item xRAR (Reachability, Addressing and Repository) service capability
+ \begin{itemize}
+  \item mapping between a network element and a set of routable
+ network addresses
+  \item manages subscriptions and notifications
+ \end{itemize}
+ \item xSEC (Security) service capability handles authentication, authorisation and
+ keys
+\end{itemize}
+}
+
+\section{Traffic pattern}
+\frame{\frametitle{Data traffic pattern for QoS performance evaluation}
+\begin{table}[tbp!]\footnotesize
+\begin{center}
+ % \begin{tabular}[t]{| r || c | c | c |}
+ \begin{tabular}[t]{| p{2.1cm} || p{2.1cm} | p{2cm} | p{2cm} |}
+  \hline
+  \textcolor{darkred}{application \newline (subscriber)} & Oscillation Monitor & State \newline Estimator &
+Smart \newline Metering \\ \hline
+  \textcolor{darkred}{purpose} & control & monitoring & reporting \\ \hline
+  \textcolor{darkred}{latency} & 10~ms & 1~s & $>1~h$ \\ \hline
+  \textcolor{darkred}{category} & real-time & near real-time & slow \\ \hline
+  \textcolor{darkred}{rate} & 30~updates/s & 5~updates/s & 4~updates/h \\ \hline
+  \textcolor{darkred}{scope} & selected PMUs & all PMUs & all meters \\ \hline
+  \textcolor{darkred}{device \newline (publisher)} & PMU directly & substation or PMU & smart meter \\ \hline
+  \textcolor{darkred}{\scriptsize{nr. of publishers}} & 12 & 12 & millions \\
+  \hline
+ \end{tabular}
+\end{center}
+\end{table}
+\begin{itemize}
+ \item Substation can \textcolor{darkred}{aggregate} device data
+\end{itemize}
+}
+
+% \frame{\frametitle{High level architectural mapping}
+% \begin{figure}[tbp!]
+% \centering{\includegraphics[width=0.9\textwidth]{architecture}}
+% \end{figure}
+% }
+
+\section{Concluding remarks}
+\frame{\frametitle{Concluding remarks}
+\begin{itemize}
+ \item ETSI M2M standard is functionally suitable for Smart Grid communications
+ \item Future work
+ \begin{itemize}
+  \item Get QoS performance evaluation of ETSI M2M prototype
+  \item Consider and propose optimisations to meet the stringent requirements
+ \end{itemize}
+\end{itemize}
+}
+
+\newpage
+\frame{
+Thank you for your kind attention! \\
+\vspace{1cm}
+Questions? \\ 
+\vspace{1cm}
+tatjana.predojev@cttc.es
+}
+
+\end{document}
